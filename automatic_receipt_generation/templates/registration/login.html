@@ -16,11 +16,12 @@
 
   <div class="login">
 	<h1>Login</h1>
-	<form method="post">
-		<input type="text" name="u" placeholder="Username" required="required" />
-		<input type="password" name="p" placeholder="Password" required="required" />
-		<button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
+	<form method="POST">
+		{{ form }}
+		{% csrf_token %}
+		<input type="submit" value="Login">
 	</form>
+	
 </div>
 <script  src={% static "js/login_page/login.js" %}></script>
 
