@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Request Receipt</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label>
+            Transaction ID :
+            <input type="text" name="tid">
+        </label>
+        <br>
+        <label>
+            Type(Cash/Cheque) :
+            <input type="text" name="type">
+        </label>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>
