@@ -1,14 +1,139 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
 
-{% block title %}Sent{% endblock %}
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-{% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-  <p>Email Sent!!</p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-{% endif %}
-{% endblock %}
+	<title>Email(s) Sent</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{% static "css/home/bootstrap.min.css" %}" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{% static "css/home/owl.carousel.css" %}" />
+	<link type="text/css" rel="stylesheet" href="{% static "css/home/owl.theme.default.css" %}" />
+
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="{% static "css/home/magnific-popup.css" %}" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{% static "css/home/font-awesome.min.css" %}">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{% static "css/home/style.css" %}" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<!-- Header -->
+	<header id="home">
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('{% static "/img/home/office_automation1.jpg" %}');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		<!-- Nav -->
+		<nav id="nav" class="navbar nav-transparent">
+			<div class="container">
+
+				<div class="navbar-header">
+					<!-- Logo -->
+					<div class="navbar-brand">
+						<a href="index.html">
+							<img class="logo" style="padding-top: 6px; padding-bottom: 6px" src="{% static "img/home/logo-alt.png" %}" alt="logo">
+							<img class="logo-alt" src="{% static "img/home/logo-alt.png" %}" alt="logo">
+						</a>
+					</div>
+					<!-- /Logo -->
+
+					<!-- Collapse nav button -->
+					<div class="nav-collapse">
+						<span></span>
+					</div>
+					<!-- /Collapse nav button -->
+				</div>
+
+				<!--  Main navigation  -->
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="{% url 'sent' %}">Send Email</a></li>
+					{% if user.is_authenticated %}
+						<li class="login-link"><a href="{% url 'logout' %}">Logout</a></li>
+					{% else %}
+						<li class="login-link"><a href="{% url 'login' %}">Log In</a></li>
+					{% endif %}
+				</ul>
+				<!-- /Main navigation -->
+
+			</div>
+		</nav>
+		<!-- /Nav -->
+
+		<!-- home wrapper -->
+		<div class="home-wrapper">
+			<div class="container">
+				<div class="row">
+
+					<!-- home content -->
+					<div class="col-md-10 col-md-offset-1">
+						<div class="home-content">
+							{% if user.is_authenticated %}
+								<h1 class="white-text">Hi {{ user.username }}!</h1>
+							{% else %}
+								<h1 class="white-text">You are not logged in</h1>
+							{% endif %}
+							<p class="white-text">Email Sent
+							</p>
+							{% if user.is_authenticated %}
+								<a href = "{% url 'logout' %}"><button class="white-btn" >Logout</button></a>
+							{% else %}
+								<a href = "{% url 'login' %}"><button class="white-btn" >Login</button></a>
+							{% endif %}
+						</div>
+					</div>
+					<!-- /home content -->
+
+				</div>
+			</div>
+		</div>
+		<!-- /home wrapper -->
+
+	</header>
+	<!-- /Header -->
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- jQuery Plugins -->" %}
+	<script type="text/javascript" src="{% static "js/home/jquery.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/home/bootstrap.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/home/owl.carousel.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/home/jquery.magnific-popup.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/home/main.js" %}"></script>
+
+</body>
+
+</html>
