@@ -28,7 +28,7 @@ def req_page(request) :
                 c = {}
                 for i in pro_new :
                     c[i[0]] = i[2]
-                grand = t_amt + tax_amt - d_amt
+                grand = 1000 #t_amt + tax_amt - d_amt
                 items = {
                     'Invoice #' : invoice,
                     'Created' : datetime.datetime.now().date(),
@@ -56,9 +56,9 @@ def req_page(request) :
                    'products_details' : products_details,
                    'other_details' : other_details
                 }
-                
-                #mail(vemail, 'hi', 'PFA', 'alt_pdf_template.html')
-                return Render.render('alt_pdf_template.html', params)
+                lis = [invoice, vemail, typ, tid, t_amt, tax_amt]
+                mail(vemail, 'Transaction_Details', 'Hello, ', lis)
+                return render(request, './dashboard/sent.html')
 
             elif typ == 'Card':
                 v = Card_Transactions.objects.get(Transaction_ID = tid)
@@ -104,9 +104,10 @@ def req_page(request) :
                    'products_details' : products_details,
                    'other_details' : other_details
                 }
+                lis = [invoice, vemail, typ, tid, t_amt, tax_amt]
                 
-                #mail(vemail, 'hi', 'PFA', 'alt_pdf_template.html')
-                return Render.render('alt_pdf_template.html', params)
+                mail(vemail, 'Transaction_Details', 'Hello, ', lis)
+                return render(request, './dashboard/sent.html')
             else :
                 pass
     return render(request, 'req_receipt/req_page.html')

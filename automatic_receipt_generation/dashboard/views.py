@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.core.mail import EmailMessage 
-from dashboard.mail import mail
+import os
+import sys
 from dashboard.forms import SAPform
 from django.core.files.storage import FileSystemStorage
-
-
+base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, base)
+from sample_mail import *
 # Create your views here.
 def sent(request) :
-    mail('theshreyansdubey@gmail.com', 'Hello', 'PFA', '/base.html')
+    send_sample()
     return render(request, './dashboard/sent.html')
 
 def dashboard_home(request):
