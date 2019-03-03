@@ -14,10 +14,10 @@ def sent(request) :
 
 def dashboard_home(request):
     if request.method == 'POST':
-        SAPf = SAPform(request.POST, request.FILES)
-        if SAPf.is_valid():
-            SAPf.save()
+        form = SAPform(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
     else:
-        SAPf = SAPform()
-    context = {'form' : SAPf}
+        form = SAPform()
+    context = {'form' : form,}
     return render(request, './dashboard/dashboard_home.html', context = context)
