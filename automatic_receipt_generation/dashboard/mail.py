@@ -6,7 +6,7 @@ from email import encoders
 import os
 
 username = "theshreyansdubey@gmail.com"
-passwd = "<password>"
+passwd = "thebelltollsforthelordoftrolls"
 
 def mail(to, subject, text, attach):
    msg = MIMEMultipart()
