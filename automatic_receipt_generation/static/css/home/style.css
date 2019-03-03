@@ -162,6 +162,18 @@ ul, ol {
     background-attachment: fixed;
 }
 
+.upload-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .bg-img .overlay {
     position: absolute;
     left: 0;
@@ -624,6 +636,63 @@ header {
 }
 
 .header-wrapper .breadcrumb .breadcrumb-item.active {
+    color: #868F9B;
+}
+
+.breadcrumb>li+li:before {
+    color: #868F9B;
+}
+
+
+/*------------------------------------*\
+    Upload
+\*------------------------------------*/
+
+.upload {
+    position: relative;
+}
+
+#upload {
+    height: 75vh;
+}
+
+.upload-form {
+    font-size: 20px;
+}
+.form-headings {
+    color:  #6195FF;
+}
+
+#upload .upload-wrapper {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.upload-content h1 {
+text-transform: uppercase;
+}
+.upload-content button {
+margin-top: 20px;
+}
+
+.upload-wrapper h2 {
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.upload-wrapper .breadcrumb {
+    float: right;
+    background: transparent;
+    margin-bottom: 0px;
+}
+
+.upload-wrapper .breadcrumb .breadcrumb-item.active {
     color: #868F9B;
 }
 

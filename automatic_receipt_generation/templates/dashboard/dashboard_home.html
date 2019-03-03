@@ -179,16 +179,71 @@
 
 	<!-- /Numbers -->
 
+	<!-- Upload -->
+	<div id="upload" class="section md-padding">
+
+
+
+		<!-- Container -->
+		<div class="container">
+				<div class="upload-bg" style="background-color: rgb(22, 22, 22)">
+						<div class="overlay"></div>
+					</div>
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title" style="color: white;">Upload Data Files</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- about -->
+				<div class="col-md-6 col-md-offset-3">
+						<form method="POST" enctype="multipart/form-data" class="form-group">
+							{% csrf_token %}
+
+							<div class="upload-form">
+
+								<div class="fieldWrapper">
+									{{ form.sample_SAP.errors }}
+									<div class="form-headings">
+											<label for=<input type="text" name="desc" value="SAP file" maxlength="1024" required id="id_desc">
+												<span style="font-size: 25px;"><u>Choose File:</u></span>
+											</label>
+											</div>
+											<input type="file" name="sample_SAP" required id="id_sample_SAP">
+										</div>
+										<div class="fieldWrapper">
+											
+											<div class="form-headings">
+											<label for=<input type="text" name="desc" value="SAP file" maxlength="1024" required id="id_desc">
+											<span style="font-size: 25px;"><u>Description:</u></span>
+											</label>
+											</div>
+											<input class="input" type="text" name="desc" value="SAP file" maxlength="1024" required id="id_desc">
+										</div>
+									</div><br>
+							<button type="submit" class="main-btn" >Save</button>  
+						</form>
+				</div>
+				<!-- /about -->
+
+				
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Upload -->
 	
 
 	<!-- Why Choose Us -->
-	<div style="padding-left: 20px">
-		<form method="POST" enctype="multipart/form-data" class="form-group">
-			{% csrf_token %}
-			{{ form.as_p }}
-			<button type="submit">Save</button>  
-		</form>
-	</div>
+
 	<!-- /Why Choose Us -->
 
 
